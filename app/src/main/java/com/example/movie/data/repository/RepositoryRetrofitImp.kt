@@ -10,9 +10,10 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class RepositoryRetrofitImp:RepositoryRetrofit {
-    lateinit var movies:List<Movie>
+
 
     override fun getMovieNetwork(): List<Movie> {
+        var movies= listOf<Movie>()
         val call = MovieApiInterface.MovieApiClient.apiClient().getMovieList()
         call.enqueue(
             object : Callback<MovieList>{

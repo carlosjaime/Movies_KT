@@ -5,10 +5,10 @@ import com.example.movie.domain.model.Movie
 import kotlinx.coroutines.flow.Flow
 
 interface RepositoryRoom {
-    fun getMovieDB(): Flow<List<Movie>>
+    fun getMovieDB(): List<Movie>
     suspend fun insert(movie: Movie)
-    fun getGenrMovieList(genr:String):Flow<List<Movie>>
-    fun getMovieID(id:String):Flow<List<Movie>>
+    fun getGenrMovieList(genr:String):List<Movie>
+    fun getMovieID(id:String):Flow<Movie>
 
 
 

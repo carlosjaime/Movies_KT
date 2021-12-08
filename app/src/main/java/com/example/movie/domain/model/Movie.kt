@@ -2,6 +2,9 @@ package com.example.movie.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import androidx.room.TypeConverter
+import androidx.room.TypeConverters
+import com.example.movie.data.room.Genre_igsConverter
 
 //Пример запроса
 //https://api.themoviedb.org/3/discover/movie?
@@ -15,7 +18,9 @@ import androidx.room.PrimaryKey
 data class Movie(
     var adult:Boolean = false,
     var backdrop_path: String,
+    @TypeConverters(Genre_igsConverter::class)
     var genre_ids: List<String>,
+    //var genre_ids:String,
     @PrimaryKey
     var id:Int = 0,
     var original_language: String,
