@@ -1,5 +1,8 @@
 package com.example.movie.domain.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
 //Пример запроса
 //https://api.themoviedb.org/3/discover/movie?
 // api_key=59a202c94eb1db326c806558399d7d75&
@@ -8,12 +11,12 @@ package com.example.movie.domain.model
 // page=2&
 // with_watch_monetization_types=flatrate
 
-//@Entity(tableName = "table_movie")
-
+@Entity(tableName = "table_movie")
 data class Movie(
     var adult:Boolean = false,
     var backdrop_path: String,
     var genre_ids: List<String>,
+    @PrimaryKey
     var id:Int = 0,
     var original_language: String,
     var original_title: String,
