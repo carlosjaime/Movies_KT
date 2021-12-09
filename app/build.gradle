@@ -58,7 +58,7 @@ dependencies {
 // Annotation processor
     //kapt("androidx.lifecycle:lifecycle-compiler:2.4.0")
     implementation("androidx.lifecycle:lifecycle-reactivestreams-ktx:2.4.0")
-
+    implementation "org.jetbrains.anko:anko-design:0.10.5"
     implementation("androidx.room:room-runtime:2.3.0")
     annotationProcessor "androidx.room:room-compiler:2.3.0"
 

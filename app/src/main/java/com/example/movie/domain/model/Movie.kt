@@ -14,14 +14,13 @@ import com.example.movie.data.room.Genre_igsConverter
 // page=2&
 // with_watch_monetization_types=flatrate
 
-@Entity(tableName = "table_movie")
+
 data class Movie(
     var adult:Boolean = false,
     var backdrop_path: String,
-    @TypeConverters(Genre_igsConverter::class)
+
     var genre_ids: List<String>,
     //var genre_ids:String,
-    @PrimaryKey
     var id:Int = 0,
     var original_language: String,
     var original_title: String,

@@ -1,10 +1,15 @@
 package com.example.movie.data.room
 
 import android.content.Context
+import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.example.movie.domain.model.Movie
+import com.example.movie.domain.model.Movie_table
 import kotlinx.coroutines.CoroutineDispatcher
-
+@Database(entities = arrayOf(Movie_table::class), version = 1, exportSchema = false)
+@TypeConverters(Genre_igsConverter::class)
 abstract class RoomDatabaseMovie : RoomDatabase() {
     abstract fun movieDao():MovieDao
     companion object {
