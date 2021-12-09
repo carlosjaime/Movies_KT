@@ -1,18 +1,16 @@
 package com.example.movie.presentation
 
+import android.os.AsyncTask.execute
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.movie.R
-import com.example.movie.data.repository.RepositoryRetrofitImp
-import com.example.movie.data.repository.RepositoryRoomImp
-import com.example.movie.domain.repository.RepositoryRetrofit
-import com.example.movie.domain.repository.RepositoryRoom
 import com.example.movie.domain.usercase.GetMovieByList
-import kotlinx.coroutines.Dispatchers
-import retrofit2.Retrofit
+import com.example.movie.domain.usercase.SearchGenresByList
+import kotlinx.coroutines.DelicateCoroutinesApi
 
 class MainActivity : AppCompatActivity() {
+    @OptIn(DelicateCoroutinesApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -20,8 +18,11 @@ class MainActivity : AppCompatActivity() {
         val getMovieByList:GetMovieByList= GetMovieByList(this)
        val List= getMovieByList.execute()
         Log.d("List1" ,List.size.toString() )
-      //  val ref:RepositoryRetrofit=RepositoryRetrofitImp()
-      //  ref.getMovieNetwork(this)
-        //val repositoryRoom: RepositoryRoom = RepositoryRoomImp(this, Dispatchers.IO)
+        Log.d("List2" ,List[0].title )
+        val getMovieSearhList:SearchGenresByList= SearchGenresByList()
+        val List1= getMovieSearhList.execute(this,"28")
+        Log.d("List1" ,List1.size.toString() )
+        Log.d("List2" ,List1[0].title)
+
     }
 }
