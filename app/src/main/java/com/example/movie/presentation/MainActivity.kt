@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        //тест ретрофит
+        /*тест ретрофит
         val getMovieByList:GetMovieByList= GetMovieByList(this)
        val List= getMovieByList.execute()
         Log.d("List1" ,List.size.toString() )
@@ -24,5 +24,9 @@ class MainActivity : AppCompatActivity() {
         Log.d("List1" ,List1.size.toString() )
         Log.d("List2" ,List1[0].title)
 
+         */
+
     }
+
+
 }

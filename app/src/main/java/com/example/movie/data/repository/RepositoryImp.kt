@@ -58,7 +58,7 @@ class RepositoryImp(val context: Context, private val backgroundDispatcher: Coro
 
 
                     override fun onFailure(call: Call<MovieList>, t: Throwable) {
-                        Log.d("TAG1", t.toString())
+                        Log.d("TAG2", t.toString())
                     }
 
                 }

@@ -16,6 +16,9 @@ class GetMovieByList(val context: Context) {
     {
 
         val ref:Repository=RepositoryImp(context, Dispatchers.IO)
+        ref.getMovie()
+
+
         val DBcallable = Callable {ref.getMovieDB()}
         val DBfuture = Executors.newSingleThreadExecutor().submit(DBcallable)
         val DBRes:List<Movie_table> = DBfuture.get()

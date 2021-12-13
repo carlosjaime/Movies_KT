@@ -18,6 +18,18 @@ class ListFragment : BaseFragment<FragmentListBinding>(),ListContract.ListView {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val presenter:ListPresenter= ListPresenter()
+       // presenter.
+        presenter.configuringAdapter(binding.rcList, requireContext())
+
+    }
+
+    override fun navigateTo(id: Int, marshrit: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun onClickElement() {
+        TODO("Not yet implemented")
     }
 
 }
