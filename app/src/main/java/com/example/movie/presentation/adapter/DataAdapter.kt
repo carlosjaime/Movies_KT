@@ -20,8 +20,8 @@ class DataAdapter(private val context: Context): RecyclerView.Adapter<DataAdapte
 
     private val adapterData = mutableListOf<MovieUImodel>()
 
-    private var onMovieClickLisener:OnMovieClickLisener?=null
-    private var onGenrsClickLisener:OnGenrsClickLisener?=null
+    var onMovieClickLisener:OnMovieClickLisener?=null
+    var onGenrsClickLisener:OnGenrsClickLisener?=null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataAdapterViewHolder {
 

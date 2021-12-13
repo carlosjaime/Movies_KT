@@ -1,6 +1,7 @@
 package com.example.movie.presentation.list
 import android.content.Context
 import android.util.Log
+import android.widget.Adapter
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -8,12 +9,20 @@ import com.example.movie.domain.model.Genres
 import com.example.movie.domain.model.Movie
 import com.example.movie.domain.model.Movie_table
 import com.example.movie.domain.usercase.GetMovieByList
+import com.example.movie.domain.usercase.SearchGenresByList
 import com.example.movie.presentation.adapter.DataAdapter
 import com.example.movie.presentation.adapter.model.MovieUImodel
 
-class ListPresenter:ListContract.ListPresenter {
-    override fun configuringAdapter(recyclerview: RecyclerView,context: Context) {
-        val adapter=DataAdapter(context)
+class ListPresenter(val context: Context):ListContract.ListPresenter {
+   /* val adapter:DataAdapter
+    init {
+        adapter=DataAdapter(context)
+    }
+
+    */
+
+    override fun configuringAdapter(recyclerview: RecyclerView) {
+        val adapter:DataAdapter=DataAdapter(context)
         val getMovieByList: GetMovieByList = GetMovieByList(context)
 
         val movies:List<Movie_table> = getMovieByList.execute()
@@ -30,6 +39,19 @@ class ListPresenter:ListContract.ListPresenter {
             } )
 
             this.adapter=adapter
+        }
+        adapter.onMovieClickLisener=object : DataAdapter.Companion.OnMovieClickLisener{
+            override fun onMovieClick() {
+
+            }
+        }
+        adapter.onGenrsClickLisener=object : DataAdapter.Companion.OnGenrsClickLisener{
+            override fun onGenrClick() {
+                val searchGenresByList: SearchGenresByList =SearchGenresByList()
+                adapter.setData(getMockData(searchGenresByList.execute(context,"28")))
+                adapter.notifyDataSetChanged()
+            }
+
         }
 
     }

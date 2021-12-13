@@ -7,12 +7,12 @@ import com.example.movie.presentation.adapter.model.MovieUImodel
 
 interface ListContract {
     interface ListPresenter{
-        fun configuringAdapter(recyclerview:RecyclerView,context: Context)
+        fun configuringAdapter(recyclerview:RecyclerView)
         fun filterList(filterFlag:Int):List<Movie>
 
     }
     interface ListView{
-        fun navigateTo(id:Int,marshrit:Int)
+        fun navigateTo(id:String,marshrit:Int)
         fun onClickElement()
     }
 }

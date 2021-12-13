@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Project/Android/movie1/app/src/main/res/layout/activity_main.xml" value="0.20520833333333333" />
+        <entry key="..\:/Project/Android/movie1/app/src/main/res/layout/item_group.xml" value="0.20416666666666666" />
+        <entry key="..\:/Project/Android/movie1/app/src/main/res/layout/item_movie.xml" value="0.36041666666666666" />
         <entry key="..\:/Users/Prilepskiy/AndroidStudioProjects/Movie/app/src/main/res/layout/activity_main.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/Prilepskiy/AndroidStudioProjects/Movie/app/src/main/res/layout/fragment_blank.xml" value="0.2957427536231884" />
         <entry key="..\:/Users/Prilepskiy/AndroidStudioProjects/Movie/app/src/main/res/layout/fragment_info_blank.xml" value="0.2957427536231884" />

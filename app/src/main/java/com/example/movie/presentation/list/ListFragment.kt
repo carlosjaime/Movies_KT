@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.example.movie.R
 import com.example.movie.databinding.FragmentListBinding
 import com.example.movie.presentation.base.BaseFragment
@@ -18,14 +19,16 @@ class ListFragment : BaseFragment<FragmentListBinding>(),ListContract.ListView {
     }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val presenter:ListPresenter= ListPresenter()
+        val presenter:ListPresenter= ListPresenter(requireContext())
        // presenter.
-        presenter.configuringAdapter(binding.rcList, requireContext())
+        presenter.configuringAdapter(binding.rcList)
 
     }
 
-    override fun navigateTo(id: Int, marshrit: Int) {
-        TODO("Not yet implemented")
+    override fun navigateTo(id: String, marshrit: Int) {
+        val bundle = Bundle()
+        bundle.putString("title1", id)
+        findNavController().navigate(marshrit,bundle)
     }
 
     override fun onClickElement() {
