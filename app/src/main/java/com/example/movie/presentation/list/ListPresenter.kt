@@ -2,9 +2,13 @@ package com.example.movie.presentation.list
 import android.content.Context
 import android.util.Log
 import android.widget.Adapter
+import androidx.navigation.NavController
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.movie.R
 import com.example.movie.domain.model.Genres
 import com.example.movie.domain.model.Movie
 import com.example.movie.domain.model.Movie_table
@@ -21,7 +25,7 @@ class ListPresenter(val context: Context):ListContract.ListPresenter {
 
     */
 
-    override fun configuringAdapter(recyclerview: RecyclerView) {
+    override fun configuringAdapter(recyclerview: RecyclerView):DataAdapter {
         val adapter:DataAdapter=DataAdapter(context)
         val getMovieByList: GetMovieByList = GetMovieByList(context)
 
@@ -40,12 +44,12 @@ class ListPresenter(val context: Context):ListContract.ListPresenter {
 
             this.adapter=adapter
         }
-        adapter.onMovieClickLisener=object : DataAdapter.Companion.OnMovieClickLisener{
+       /* adapter.onMovieClickLisener=object : DataAdapter.Companion.OnMovieClickLisener{
 
 
-            override fun onMovieClick(movie: Movie_table) {
+            override fun onMovieClick(movie: Movie_table) = // Log.d("test48",movie.title)
 
-            }
+                   // ListFragment.findNavController()?.navigate(R.id.action_listFragment_to_detailFragment)
         }
         adapter.onGenrsClickLisener=object : DataAdapter.Companion.OnGenrsClickLisener{
             override fun onGenrClick() {
@@ -56,6 +60,8 @@ class ListPresenter(val context: Context):ListContract.ListPresenter {
 
         }
 
+        */
+        return adapter
     }
 
     override fun filterList(filterFlag: String): List<Movie_table> {

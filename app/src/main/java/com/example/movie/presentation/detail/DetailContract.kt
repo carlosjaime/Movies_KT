@@ -1,4 +1,4 @@
-package com.example.movie.presentation.info
+package com.example.movie.presentation.detail
 
 interface DetailContract {
     interface DetailPresenter{
