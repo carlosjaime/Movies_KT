@@ -49,8 +49,8 @@ class ListPresenter(val context: Context):ListContract.ListPresenter {
         }
         adapter.onGenrsClickLisener=object : DataAdapter.Companion.OnGenrsClickLisener{
             override fun onGenrClick() {
-                val searchGenresByList: SearchGenresByList =SearchGenresByList()
-                adapter.setData(getMockData(searchGenresByList.execute(context,"28")))
+
+                adapter.setData(getMockData(filterList("28")))
                 adapter.notifyDataSetChanged()
             }
 

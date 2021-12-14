@@ -25,17 +25,6 @@ class ListFragment : BaseFragment<FragmentListBinding>(),ListContract.ListView {
 
     }
 
-    override fun navigateTo(bundle:Bundle, marshrit: Int) {
 
-        findNavController().navigate(marshrit,bundle)
-    }
-
-    override fun onClickElement() {
-        TODO("Not yet implemented")
-    }
-
-    override fun onClicksearh() {
-        TODO("Not yet implemented")
-    }
 
 }

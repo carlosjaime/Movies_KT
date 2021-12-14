@@ -14,8 +14,6 @@ interface ListContract {
 
     }
     interface ListView{
-        fun navigateTo(bundle: Bundle,marshrit:Int)
-        fun onClickElement()
-        fun onClicksearh()
+
     }
 }
