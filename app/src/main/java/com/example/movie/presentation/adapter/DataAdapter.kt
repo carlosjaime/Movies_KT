@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movie.R
 import com.example.movie.domain.model.Movie
+import com.example.movie.domain.model.Movie_table
 import com.example.movie.presentation.adapter.model.MovieUImodel
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
@@ -51,7 +52,11 @@ class DataAdapter(private val context: Context): RecyclerView.Adapter<DataAdapte
             }
             else if (holder.itemViewType==2)
             {
-                onMovieClickLisener?.onMovieClick()
+                val item: MovieUImodel.Cover= adapterData[position] as MovieUImodel.Cover
+
+
+
+                onMovieClickLisener?.onMovieClick(item.MovieEntity)
                 Log.d("type112","movie")
             }
 
@@ -130,7 +135,7 @@ class DataAdapter(private val context: Context): RecyclerView.Adapter<DataAdapte
 
         interface OnMovieClickLisener
         {
-            fun onMovieClick()
+            fun onMovieClick(movie: Movie_table)
         }
 
         interface OnGenrsClickLisener

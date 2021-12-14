@@ -41,7 +41,9 @@ class ListPresenter(val context: Context):ListContract.ListPresenter {
             this.adapter=adapter
         }
         adapter.onMovieClickLisener=object : DataAdapter.Companion.OnMovieClickLisener{
-            override fun onMovieClick() {
+
+
+            override fun onMovieClick(movie: Movie_table) {
 
             }
         }
@@ -56,8 +58,9 @@ class ListPresenter(val context: Context):ListContract.ListPresenter {
 
     }
 
-    override fun filterList(filterFlag: Int): List<Movie> {
-        TODO("Not yet implemented")
+    override fun filterList(filterFlag: String): List<Movie_table> {
+        val searchGenresByList: SearchGenresByList =SearchGenresByList()
+        return searchGenresByList.execute(context,filterFlag)
     }
 
     private fun getMockData(list:List<Movie_table>): List<MovieUImodel> {
