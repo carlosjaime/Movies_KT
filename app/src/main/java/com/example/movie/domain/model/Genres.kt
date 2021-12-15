@@ -2,6 +2,7 @@ package com.example.movie.domain.model
 
 object Genres {
     val list_genres: Map<String, Int> = mapOf(
+        "Все" to 0,
         "боевик" to 28,
         "приключения" to 12,
         "мультфильм" to 16,

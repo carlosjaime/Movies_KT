@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.example.movie.R
 import com.example.movie.databinding.FragmentListBinding
+import com.example.movie.domain.model.Genres
 import com.example.movie.domain.model.Movie_table
 import com.example.movie.presentation.adapter.DataAdapter
 import com.example.movie.presentation.base.BaseFragment
@@ -25,7 +26,7 @@ class ListFragment : BaseFragment<FragmentListBinding>(),ListContract.ListView {
         val presenter:ListPresenter= ListPresenter(requireContext())
        // presenter.
        val adapter= presenter.configuringAdapter(binding.rcList)
-        adapter.onMovieClickLisener=object : DataAdapter.Companion.OnMovieClickLisener{
+        adapter.onMovieClickLisener=object : DataAdapter.OnMovieClickLisener{
 
 
             override fun onMovieClick(movie: Movie_table) {
@@ -38,11 +39,21 @@ class ListFragment : BaseFragment<FragmentListBinding>(),ListContract.ListView {
 
             // ListFragment.findNavController()?.navigate(R.id.action_listFragment_to_detailFragment)
         }
-        adapter.onGenrsClickLisener=object : DataAdapter.Companion.OnGenrsClickLisener{
-            override fun onGenrClick() {
-             // binding.rcList.
+        adapter.onGenrsClickLisener=object : DataAdapter.OnGenrsClickLisener{
+            override fun onGenrClick(string: String) {
+                Log.d("test49",string)
 
+                Log.d("test49",presenter.filterList(string).toString())
+                if(Genres.list_genres.get(string)!=0){
+                adapter.setData(presenter.getMockData(presenter.filterList(Genres.list_genres.get(string).toString())))
+                adapter.notifyDataSetChanged()}
+                else
+                {
+                    adapter.setData(presenter.getMockData(presenter.getMovieByList.execute()))
+                    adapter.notifyDataSetChanged()
+                }
             }
+
 
         }
 

@@ -14,6 +14,7 @@ import com.example.movie.R
 import com.example.movie.domain.model.Movie
 import com.example.movie.domain.model.Movie_table
 import com.example.movie.presentation.adapter.model.MovieUImodel
+import com.example.movie.presentation.list.ListPresenter
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 
@@ -37,7 +38,7 @@ class DataAdapter(private val context: Context): RecyclerView.Adapter<DataAdapte
             .from(parent.context)
             .inflate(layout, parent, false)
 
-        return DataAdapterViewHolder(view)
+        return DataAdapterViewHolder(view,onGenrsClickLisener)
     }
 
 
@@ -47,7 +48,7 @@ class DataAdapter(private val context: Context): RecyclerView.Adapter<DataAdapte
         holder.itemView.setOnClickListener{
             if(holder.itemViewType==1)
             {
-                onGenrsClickLisener?.onGenrClick()
+               // onGenrsClickLisener?.onGenrClick()
                 Log.d("type112","genrse")
             }
             else if (holder.itemViewType==2)
@@ -133,20 +134,20 @@ class DataAdapter(private val context: Context): RecyclerView.Adapter<DataAdapte
             }
              */
 
-        interface OnMovieClickLisener
-        {
-            fun onMovieClick(movie: Movie_table)
-        }
 
-        interface OnGenrsClickLisener
-        {
-            fun onGenrClick()
-        }
 
 
     }
+    interface OnMovieClickLisener
+    {
+        fun onMovieClick(movie: Movie_table)
+    }
 
-    class DataAdapterViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    interface OnGenrsClickLisener
+    {
+        fun onGenrClick(string: String)
+    }
+    class DataAdapterViewHolder(itemView: View,var onGenrsClickLisener:OnGenrsClickLisener?) : RecyclerView.ViewHolder(itemView) {
 
         private fun bindTitle(item: MovieUImodel.Title) {
             itemView.findViewById<TextView>(R.id.tvTitle).text=item.title
@@ -155,13 +156,36 @@ class DataAdapter(private val context: Context): RecyclerView.Adapter<DataAdapte
 
         private fun bindGenre(item: MovieUImodel.Genre,context: Context) {
             Log.d("aaaaa","BEGIN")
+
             itemView.findViewById<ChipGroup>(R.id.chipGpRow).removeAllViews()
             for (i in item.list_genres)
             {
-                val chip = Chip(context)
-                chip.text=i.key
+                val chip = Chip(context).apply {
+                    text=i.key
+                    isCheckable = true
+                    isCheckedIconVisible = false
+                }
+
+
                 itemView.findViewById<ChipGroup>(R.id.chipGpRow).addView(chip)
                 Log.d("aaaaa",i.key)
+
+                chip.setOnCheckedChangeListener{
+                    _,isChecked ->
+
+                    if (isChecked) {
+
+                       onGenrsClickLisener?.onGenrClick(chip.text.toString())
+                        Log.d("type112","genrse")
+                        Log.d("type999",chip.text.toString())
+                       //chip.isChecked=false
+                    }
+                    else
+                    {
+                        Log.d("type999","genrse")
+                    }
+                  //  chip.isChecked=false
+                }
 
 
             }

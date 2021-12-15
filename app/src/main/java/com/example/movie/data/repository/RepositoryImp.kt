@@ -25,7 +25,9 @@ class RepositoryImp(val context: Context, private val backgroundDispatcher: Coro
     }
 
     override fun getMovie() {
-        val call = MovieApiInterface.MovieApiClient.apiClient().getMovieList()
+
+        for (p in 1..20){
+        val call = MovieApiInterface.MovieApiClient.apiClient().getMovieList(page = p.toString())
 
         doAsync {
 
@@ -64,6 +66,7 @@ class RepositoryImp(val context: Context, private val backgroundDispatcher: Coro
                 }
             )}
 
+    }
     }
 
     override fun getMovieDB(): List<Movie_table> {

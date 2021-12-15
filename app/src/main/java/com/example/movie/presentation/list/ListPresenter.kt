@@ -24,10 +24,10 @@ class ListPresenter(val context: Context):ListContract.ListPresenter {
     }
 
     */
-
+   val getMovieByList: GetMovieByList = GetMovieByList(context)
     override fun configuringAdapter(recyclerview: RecyclerView):DataAdapter {
         val adapter:DataAdapter=DataAdapter(context)
-        val getMovieByList: GetMovieByList = GetMovieByList(context)
+        //val getMovieByList: GetMovieByList = GetMovieByList(context)
 
         val movies:List<Movie_table> = getMovieByList.execute()
         adapter.setData(getMockData(movies))
@@ -69,7 +69,7 @@ class ListPresenter(val context: Context):ListContract.ListPresenter {
         return searchGenresByList.execute(context,filterFlag)
     }
 
-    private fun getMockData(list:List<Movie_table>): List<MovieUImodel> {
+     fun getMockData(list:List<Movie_table>): List<MovieUImodel> {
         val ls :MutableList<MovieUImodel> = mutableListOf()
         ls.add(MovieUImodel.Title("Жанры"))
         ls.add(MovieUImodel.Genre(Genres.list_genres))

@@ -12,7 +12,7 @@ interface MovieApiInterface {
         @Query("api_key") api: String="59a202c94eb1db326c806558399d7d75",
         @Query("language") language: String="ru-RU",
         @Query("sort_by") sort_by: String="popularity.desc",
-        @Query("page") page: String="2",
+        @Query("page") page: String="1",
         @Query("with_watch_monetization_types") with_watch_monetization_types: String="flatrate"
     ): retrofit2.Call<MovieList>
 
