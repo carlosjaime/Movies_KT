@@ -43,13 +43,14 @@ class RepositoryImp(val context: Context, private val backgroundDispatcher: Coro
                             GlobalScope.launch {
                                 insert(
                                 Movie_table(
-                                id = it.id,
-                                original_title=it.original_title,
-                                overview=it.overview,
-                                poster_path=it.poster_path,
-                                release_date=it.release_date,
-                                title=it.title,
-                                genre_ids=it.genre_ids
+                                    id = it.id,
+                                    original_title=it.original_title,
+                                    overview=it.overview,
+                                    poster_path=it.poster_path,
+                                    release_date=it.release_date,
+                                    title=it.title,
+                                    genre_ids=it.genre_ids,
+                                    rating = it.vote_average.toString()
                             )
                             )
 

@@ -15,10 +15,11 @@ class DetailFragment: BaseFragment<FragmentDitailBinding>(), DetailContract.Deta
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.tvTitle.text=requireArguments().getString("title")
-        binding.tvOrigenalTitle.text=requireArguments().getString("original_title")
-        binding.tvyear.text=requireArguments().getString("year")
+        binding.tvTitle.text="Name :${requireArguments().getString("title")}"
+        binding.tvOrigenalTitle.text="Original name: ${requireArguments().getString("original_title")}"
+        binding.tvyear.text="Year relis: ${requireArguments().getString("year")}"
         binding.tvOverview.text=requireArguments().getString("overview")
+        binding.tvrating.text="Rating ${requireArguments().getString("rating")}"
         val detailPresenter:DetailPresenter= DetailPresenter(requireArguments().getString("poster_path")!!,binding.ivPoster)
         detailPresenter.setPoster()
 

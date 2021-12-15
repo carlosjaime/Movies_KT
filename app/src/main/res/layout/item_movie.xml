@@ -16,7 +16,7 @@
         <ImageView
             android:id="@+id/film_cover"
             android:layout_width="0dp"
-            android:layout_height="150dp"
+            android:layout_height="180dp"
             android:background="@android:color/darker_gray"
             android:scaleType="center"
             app:layout_constraintBottom_toBottomOf="parent"

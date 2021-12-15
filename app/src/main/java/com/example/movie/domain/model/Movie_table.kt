@@ -12,5 +12,6 @@ data class Movie_table (
     var poster_path: String,
     var release_date: String,
     var title: String,
-    var genre_ids: List<String>
+    var genre_ids: List<String>,
+    var rating:String
         )

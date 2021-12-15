@@ -66,6 +66,7 @@ class ListFragment : BaseFragment<FragmentListBinding>(),ListContract.ListView {
         bundle.putString("original_title", movie.original_title)
         bundle.putString("overview", movie.overview)
         bundle.putString("poster_path", movie.poster_path)
+        bundle.putString("rating",movie.rating)
         findNavController().navigate(marshrit,bundle)
     }
 
