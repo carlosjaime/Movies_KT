@@ -10,7 +10,7 @@ import com.example.movie.presentation.base.BaseFragment
 
 
 
-class DetailFragment: BaseFragment<FragmentDitailBinding>(), DetailContract.DetailView {
+class DetailFragment: BaseFragment<FragmentDitailBinding>() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

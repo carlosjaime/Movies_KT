@@ -86,54 +86,6 @@ class DataAdapter(private val context: Context): RecyclerView.Adapter<DataAdapte
         private const val TYPE_TITLE = 0
         private const val TYPE_GENRE = 1
         private const val TYPE_MOVIE = 2
-/*
-        private val COMPARATOR = object : DiffUtil.ItemCallback<MovieUImodel>() {
-
-            override fun areItemsTheSame(
-                oldItem: MovieUImodel,
-                newItem: MovieUImodel
-            ): Boolean {
-                return (oldItem is MovieUImodel.Title && newItem is MovieUImodel.Title && oldItem.title == newItem.title)
-                //|| (oldItem is MovieUImodel.Genre && newItem is MovieUImodel.Genre && oldItem..genre.contentEquals(newItem.genre))
-                // || (oldItem is MovieUImodel.Cover && newItem is MovieUImodel.Cover && oldItem.filmEntity.id == newItem.filmEntity.id)
-            }
-
-            override fun areContentsTheSame(
-                oldItem: MovieUImodel,
-                newItem: MovieUImodel
-            ): Boolean {
-                return oldItem == newItem
-            }
-
-        }
-
-
-
-        val DataAdapter.manager: GridLayoutManager
-
-            get() {
-
-                val countColumn = 2
-                val maxColumnWeight = 2
-                val minColumnWeight = 1
-
-                return GridLayoutManager(context, countColumn).apply {
-
-                    spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-
-                        override fun getSpanSize(position: Int): Int {
-                            return when (getItem(position)) {
-                                is MovieUImodel.Cover -> minColumnWeight
-                                is MovieUImodel.Title -> maxColumnWeight
-                                is MovieUImodel.Genre -> maxColumnWeight
-                                else                 -> throw UnsupportedOperationException("Unknown view")
-                            }
-                        }
-                    }
-                }
-            }
-             */
-
 
 
 

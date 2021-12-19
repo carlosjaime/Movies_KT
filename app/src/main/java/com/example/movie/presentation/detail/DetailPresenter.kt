@@ -5,7 +5,7 @@ import android.widget.ImageView
 import com.bumptech.glide.Glide
 import com.example.movie.R
 
-class DetailPresenter(var img:String,var imageView: ImageView):DetailContract.DetailPresenter {
+class DetailPresenter(var img:String,var imageView: ImageView) {
   fun  setPoster()
   {
       Glide.with(imageView).load("https://image.tmdb.org/t/p/w500"+img)
