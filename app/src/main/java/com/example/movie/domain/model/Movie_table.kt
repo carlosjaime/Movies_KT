@@ -7,11 +7,11 @@ import androidx.room.PrimaryKey
 data class Movie_table (
     @PrimaryKey
     var id:Int = 0,
-    var original_title: String,
-    var overview: String,
-    var poster_path: String,
-    var release_date: String,
-    var title: String,
+    var original_title: String="test",
+    var overview: String="",
+    var poster_path: String="",
+    var release_date: String?="",
+    var title: String="",
     var genre_ids: List<String>,
-    var rating:String
+    var rating:String=""
         )

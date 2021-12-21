@@ -10,7 +10,7 @@ import com.example.movie.domain.model.MovieList
 import com.example.movie.domain.model.Movie_table
 import com.example.movie.domain.repository.Repository
 import kotlinx.coroutines.*
-import org.jetbrains.anko.doAsync
+
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -29,7 +29,7 @@ class RepositoryImp(val context: Context, private val backgroundDispatcher: Coro
         for (p in 1..20){
         val call = MovieApiInterface.MovieApiClient.apiClient().getMovieList(page = p.toString())
 
-        doAsync {
+
 
             call.enqueue(
                 object : Callback<MovieList>{
@@ -37,10 +37,12 @@ class RepositoryImp(val context: Context, private val backgroundDispatcher: Coro
                     override fun onResponse(call: Call<MovieList>, response: Response<MovieList>) {
 
                         movies= response.body()?.results ?: throw NullPointerException("ERROR: Network,(NetworkRepositoryImpl)")
-                        Log.d("TAG1", movies[0].title)
-
+                        Log.d("TAG1", movies[0].release_date)
+                         val scope = CoroutineScope(Dispatchers.Unconfined)
                         movies.forEach {
-                            GlobalScope.launch {
+
+
+                            scope.launch {
                                 insert(
                                 Movie_table(
                                     id = it.id,
@@ -67,7 +69,7 @@ class RepositoryImp(val context: Context, private val backgroundDispatcher: Coro
                 }
             )}
 
-    }
+
     }
 
     override fun getMovieDB(): List<Movie_table> {
